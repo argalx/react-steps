@@ -8,6 +8,7 @@ const messages = [
 
 export default function App() {
   const [step, setStep] = useState(1);
+  const [test, setTest] = useState({ name: "test" });
 
   function handlePrevious() {
     // Handle previous step logic
@@ -17,6 +18,10 @@ export default function App() {
   function handleNext() {
     // Handle next step logic
     if (step < 3) setStep(step + 1);
+
+    // BAD PRACTICE: Mutating state directly
+    // test.name = "test2";
+    setTest({ name: "test2" });
   }
 
   return (
@@ -29,6 +34,7 @@ export default function App() {
 
       <p className="message">
         Step {step}: {messages[step - 1]}
+        {test.name}
       </p>
 
       <div className="buttons">
