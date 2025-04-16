@@ -14,12 +14,15 @@ export default function App() {
 
   function handlePrevious() {
     // Handle previous step logic
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((currentValue) => currentValue - 1);
   }
 
   function handleNext() {
     // Handle next step logic
-    if (step < 3) setStep(step + 1);
+    if (step < 3) {
+      setStep((currentValue) => currentValue + 1);
+      // setStep((s) => s + 1);
+    }
 
     // BAD PRACTICE: Mutating state directly
     // test.name = "test2";
@@ -28,7 +31,10 @@ export default function App() {
 
   return (
     <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="close"
+        onClick={() => setIsOpen((currentValue) => !currentValue)}
+      >
         &times;
       </button>
       {isOpen && (
