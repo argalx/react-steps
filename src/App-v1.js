@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div>
       <Steps />
-      {/* <Steps /> */}
+      <Steps />
     </div>
   );
 }
@@ -61,33 +61,21 @@ function Steps() {
           </p>
 
           <div className="buttons">
-            <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrevious}>
-              <span>👈</span>Previous
-            </Button>
-            <Button
-              bgColor="#7950f2"
-              textColor="#fff"
-              onClick={handleNext}
-              text={<span>Next 👉</span>}
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handlePrevious}
             >
-              Next<span>👉</span>
-            </Button>
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handleNext}
+            >
+              Next
+            </button>
           </div>
         </div>
       )}
     </div>
-  );
-}
-
-// Reusable Button component
-function Button({ textColor, bgColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: textColor }}
-      onClick={onClick}
-    >
-      {/* Children prop */}
-      {children}
-    </button>
   );
 }
